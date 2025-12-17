@@ -1,6 +1,14 @@
 // src/models/jobModel.js
+export function getById(id) {
+    return jobs.find((p) => p.id == id);
+  }
+  export function getId(id) {
+    const job = jobs.find(job => job.id == id);
+  return job ? job.applicants : [];
+  }
 
-const jobs = [
+
+var jobs = [
   {
     id: 1,
     job_designation: "Frontend Developer",
@@ -11,10 +19,29 @@ const jobs = [
     employees: "10k+ employees",
     job_posted: "2 days ago",
     featured: true,
-    logo: "/images/google.png",
+    logo: "/images/amz.png",
     skills_required: ["HTML", "CSS", "JavaScript", "React"],
     job_type: "Full-time",
-    experience_level: "Entry"
+    experience_level: "Entry",
+    job_category: "Tech"
+
+    ,applicants: [
+      {
+        id: 101,
+        name: "Rahul"
+      },
+      {
+        id: 102,
+        name: "Amit"
+      }
+    ],
+
+    skills_required: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React"
+    ]
   },
   {
     id: 2,
@@ -30,6 +57,25 @@ const jobs = [
     skills_required: ["Node.js", "Express", "MongoDB"],
     job_type: "Remote",
     experience_level: "Associate"
+    ,
+    job_category: "Tech"
+    ,applicants: [
+      {
+        id: 101,
+        name: "Rahul"
+      },
+      {
+        id: 102,
+        name: "Amit"
+      }
+    ],
+
+    skills_required: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React"
+    ]
   }
 ];
 

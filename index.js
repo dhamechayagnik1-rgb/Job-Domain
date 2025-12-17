@@ -1,15 +1,15 @@
 import express from 'express';
 import ejsLayouts from 'express-ejs-layouts';
 import path from 'path';
-import UserController from './src/controler/controller.js';
-import {getSingleJob} from "./src/controler/controller.js";
+import ProductController from './src/controler/controller.js';
+
 
 
 const app = express();
 
 
 
-  const usersController = new UserController();
+  const usersController = new ProductController();
 
 app.use(ejsLayouts);
 app.use(express.json());
@@ -25,7 +25,15 @@ app.set(
 app.get('/', usersController.getLandingPage);
 app.get('/login', usersController.getLoginPage);
 app.get('/jobs', usersController.getListAllJobs);
-app.get("/job/:id", getSingleJob);
+app.get("/job/:id", usersController.getSingleJob );  
+app.get(
+  '/job/update/:id',
+  usersController.getupdateJob 
+);
+app.get(
+  '/job/applicants/:id',
+  usersController.getallapplicants 
+);
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
