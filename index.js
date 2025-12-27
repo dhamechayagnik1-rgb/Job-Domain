@@ -26,6 +26,10 @@ app.set(
 app.get('/', usersController.getHomePage);
 app.get('/login', usersController.getLoginPage);
 app.get('/jobs', usersController.getListAllJobs);
+app.post('/login', usersController.postLogin);
+app.post(
+'/register',
+usersController.postRegister);
 app.get('/postjob', usersController.getNewJobPage);
 app.get("/job/:id", usersController.getSingleJob );  
 app.get(
