@@ -1,11 +1,31 @@
 // src/models/jobModel.js
 export function getById(id) {
-    return jobs.find((p) => p.id == id);
-  }
-  export function getId(id) {
-    const job = jobs.find(job => job.id == id);
+  return jobs.find((p) => p.id == id);
+}
+export function getId(id) {
+  const job = jobs.find(job => job.id == id);
   return job ? job.applicants : [];
+}
+
+export function getAll() {
+    return jobs;
   }
+
+ export const updateUsers = (user) => {
+  // Write your code here
+  const index = jobs.findIndex(
+    (p) => p.id == user.id
+  );
+ 
+  return jobs[index];
+};
+
+  
+  
+
+  
+
+
 
 
 var jobs = [
@@ -23,9 +43,11 @@ var jobs = [
     skills_required: ["HTML", "CSS", "JavaScript", "React"],
     job_type: "Full-time",
     experience_level: "Entry",
-    job_category: "Tech"
+    job_category: "Tech",
+    featured: true
+    
 
-    ,applicants: [
+    , applicants: [
       {
         id: 101,
         name: "Rahul"
@@ -36,12 +58,7 @@ var jobs = [
       }
     ],
 
-    skills_required: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React"
-    ]
+    
   },
   {
     id: 2,
@@ -56,10 +73,11 @@ var jobs = [
     logo: "/images/google.png",
     skills_required: ["Node.js", "Express", "MongoDB"],
     job_type: "Remote",
-    experience_level: "Associate"
+    experience_level: "Associate",
+    featured: true
     ,
     job_category: "Tech"
-    ,applicants: [
+    , applicants: [
       {
         id: 101,
         name: "Rahul"
@@ -70,12 +88,7 @@ var jobs = [
       }
     ],
 
-    skills_required: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React"
-    ]
+   
   }
 ];
 

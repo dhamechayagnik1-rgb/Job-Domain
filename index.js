@@ -12,6 +12,7 @@ const app = express();
   const usersController = new ProductController();
 
 app.use(ejsLayouts);
+app.set('layout', 'layout');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -22,9 +23,10 @@ app.set(
   path.join(path.resolve(), 'src', 'views')
 );
 
-app.get('/', usersController.getLandingPage);
+app.get('/', usersController.getHomePage);
 app.get('/login', usersController.getLoginPage);
 app.get('/jobs', usersController.getListAllJobs);
+app.get('/postjob', usersController.getNewJobPage);
 app.get("/job/:id", usersController.getSingleJob );  
 app.get(
   '/job/update/:id',
@@ -33,6 +35,16 @@ app.get(
 app.get(
   '/job/applicants/:id',
   usersController.getallapplicants 
+);
+app.post(
+  '/jobs',
+  
+  usersController.postAddJob
+);
+app.post(
+  '/job/update/:id',
+  
+  usersController.postUpdateProduct
 );
 
 app.listen(3000, () => {

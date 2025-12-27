@@ -1,8 +1,18 @@
 {
+  "name": "job-domain",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^5.2.1",
-    "express-ejs-layouts": "^2.5.1",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.11"
   }
 }
+
