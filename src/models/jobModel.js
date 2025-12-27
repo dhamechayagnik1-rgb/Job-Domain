@@ -1,31 +1,4 @@
 // src/models/jobModel.js
-export function getById(id) {
-  return jobs.find((p) => p.id == id);
-}
-export function getId(id) {
-  const job = jobs.find(job => job.id == id);
-  return job ? job.applicants : [];
-}
-
-export function getAll() {
-    return jobs;
-  }
-
- export const updateUsers = (user) => {
-  // Write your code here
-  const index = jobs.findIndex(
-    (p) => p.id == user.id
-  );
- 
-  return jobs[index];
-};
-
-  
-  
-
-  
-
-
 
 
 var jobs = [
@@ -91,5 +64,40 @@ var jobs = [
    
   }
 ];
+
+
+export function getById(id) {
+  return jobs.find((p) => p.id == id);
+}
+export function getId(id) {
+  const job = jobs.find(job => job.id == id);
+  return job ? job.applicants : [];
+}
+
+export function getAll() {
+    return jobs;
+  }
+
+export const updateUsers = (updatedJob) => {
+  const index = jobs.findIndex(
+    (p) => p.id === updatedJob.id
+  );
+
+  if (index !== -1) {
+    jobs[index] = updatedJob; // update
+  }
+
+  return jobs;
+};
+
+  
+  
+
+  
+
+
+
+
+
 
 export default jobs;
